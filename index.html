@@ -1,422 +1,466 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Makazi Chap | Tafuta Makazi Kwa Chap</title>
-
-    <meta name="description"
-          content="Makazi Chap - Tafuta vyumba na nyumba za kupanga kwa urahisi Tanzania.">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            background: #f5f6f8;
-            color: #222;
-        }
-
-        /* NAVBAR */
-
-        header {
-            background: #ffffff;
-            padding: 16px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #087f5b;
-        }
-
-        .logo span {
-            color: #222;
-        }
-
-        nav {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .post-btn {
-            background: #087f5b;
-            color: white;
-            padding: 10px 16px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        /* HERO */
-
-        .hero {
-            background: linear-gradient(135deg, #087f5b, #064b3b);
-            color: white;
-            padding: 70px 6%;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 12px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .search-box {
-            background: white;
-            max-width: 950px;
-            margin: auto;
-            padding: 15px;
-            border-radius: 12px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr auto;
-            gap: 10px;
-        }
-
-        .search-box input,
-        .search-box select {
-            padding: 14px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            width: 100%;
-        }
-
-        .search-button {
-            background: #087f5b;
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        /* SECTIONS */
-
-        .section {
-            padding: 45px 6%;
-        }
-
-        .section-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .section-title h2 {
-            font-size: 27px;
-        }
-
-        .section-title a {
-            color: #087f5b;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* PROPERTY GRID */
-
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 22px;
-        }
-
-        .property-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            transition: transform 0.2s;
-        }
-
-        .property-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .property-image {
-            height: 190px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .property-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #087f5b;
-            color: white;
-            padding: 6px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .property-info {
-            padding: 16px;
-        }
-
-        .property-info h3 {
-            margin-bottom: 8px;
-        }
-
-        .location {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .price {
-            color: #087f5b;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .period {
-            color: #777;
-            font-size: 13px;
-        }
-
-        .property-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .view-btn {
-            background: #eef8f4;
-            color: #087f5b;
-            padding: 8px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        /* HOW IT WORKS */
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .step {
-            background: white;
-            padding: 25px;
-            text-align: center;
-            border-radius: 12px;
-        }
-
-        .step-icon {
-            font-size: 35px;
-            margin-bottom: 12px;
-        }
-
-        .step h3 {
-            margin-bottom: 8px;
-        }
-
-        .step p {
-            color: #666;
-            line-height: 1.5;
-        }
-
-        /* LANDLORD SECTION */
-
-        .landlord {
-            background: #087f5b;
-            color: white;
-            padding: 45px 6%;
-            text-align: center;
-        }
-
-        .landlord h2 {
-            margin-bottom: 12px;
-        }
-
-        .landlord p {
-            margin-bottom: 20px;
-        }
-
-        .landlord button {
-            background: white;
-            color: #087f5b;
-            border: none;
-            padding: 13px 22px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #111;
-            color: #aaa;
-            padding: 35px 6%;
-            text-align: center;
-        }
-
-        footer h3 {
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        /* MODAL */
-
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: white;
-            width: 100%;
-            max-width: 500px;
-            border-radius: 12px;
-            padding: 25px;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .close {
-            font-size: 25px;
-            cursor: pointer;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 7px;
-        }
-
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: #087f5b;
-            color: white;
-            border: none;
-            padding: 13px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 700px) {
-
-            header {
-                padding: 14px 4%;
-            }
-
-            nav a {
-                display: none;
-            }
-
-            .hero {
-                padding: 50px 5%;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .search-box {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 35px 5%;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-            }
-
-            .property-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Makazi Chap | Tafuta Makazi Kwa Chap</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f7f8;
+    color:#222;
+}
+
+header{
+    background:white;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 10px #00000012;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#087f5b;
+}
+
+nav{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+}
+
+button{
+    cursor:pointer;
+}
+
+.post-btn{
+    background:#087f5b;
+    color:white;
+    border:0;
+    padding:11px 16px;
+    border-radius:7px;
+    font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#087f5b,#064936);
+    color:white;
+    padding:65px 5%;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:28px;
+}
+
+.search{
+    background:white;
+    padding:12px;
+    border-radius:12px;
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr auto;
+    gap:10px;
+}
+
+.search input,
+.search select{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:7px;
+}
+
+.search button{
+    border:0;
+    background:#087f5b;
+    color:white;
+    padding:14px 22px;
+    border-radius:7px;
+    font-weight:bold;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:45px 5%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.heading{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+.heading h2{
+    font-size:27px;
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:22px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 15px #00000012;
+}
+
+.card-img{
+    height:200px;
+    position:relative;
+}
+
+.card-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#087f5b;
+    color:white;
+    padding:6px 9px;
+    border-radius:5px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.heart{
+    position:absolute;
+    right:12px;
+    top:12px;
+    background:white;
+    border:0;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    font-size:19px;
+}
+
+.card-body{
+    padding:16px;
+}
+
+.card-body h3{
+    margin-bottom:7px;
+}
+
+.location{
+    color:#666;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.price{
+    color:#087f5b;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.period{
+    color:#777;
+    font-size:13px;
+}
+
+.stats{
+    margin-top:12px;
+    color:#777;
+    font-size:13px;
+}
+
+.view{
+    margin-top:14px;
+    width:100%;
+    padding:11px;
+    border:0;
+    background:#eaf7f2;
+    color:#087f5b;
+    font-weight:bold;
+    border-radius:7px;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.feature{
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:10px;
+}
+
+.feature-icon{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#666;
+    margin-top:7px;
+    font-size:14px;
+}
+
+/* LANDLORD */
+
+.landlord{
+    background:#087f5b;
+    color:white;
+    text-align:center;
+    padding:50px 5%;
+}
+
+.landlord h2{
+    margin-bottom:10px;
+}
+
+.landlord p{
+    margin-bottom:20px;
+}
+
+.landlord button{
+    background:white;
+    color:#087f5b;
+    border:0;
+    padding:13px 22px;
+    border-radius:7px;
+    font-weight:bold;
+}
+
+/* MODALS */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#00000099;
+    z-index:1000;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+}
+
+.modal-box{
+    background:white;
+    width:100%;
+    max-width:600px;
+    max-height:92vh;
+    overflow:auto;
+    border-radius:12px;
+    padding:25px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.close{
+    font-size:27px;
+    cursor:pointer;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:7px;
+}
+
+textarea{
+    min-height:100px;
+}
+
+.two{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.amenities{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+.payment-box{
+    background:#eef9f4;
+    padding:15px;
+    border-radius:8px;
+    margin:15px 0;
+}
+
+.payment-box strong{
+    color:#087f5b;
+}
+
+.submit{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:7px;
+    background:#087f5b;
+    color:white;
+    font-weight:bold;
+}
+
+/* PROPERTY DETAILS */
+
+.details-img{
+    width:100%;
+    height:270px;
+    object-fit:cover;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.detail-price{
+    font-size:25px;
+    color:#087f5b;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.detail-section{
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.contact-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
+}
+
+.call{
+    background:#087f5b;
+    color:white;
+    padding:13px;
+    border:0;
+    border-radius:7px;
+}
+
+.whatsapp{
+    background:#25D366;
+    color:white;
+    padding:13px;
+    border:0;
+    border-radius:7px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    color:#aaa;
+    text-align:center;
+    padding:35px;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:8px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav a{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .search{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .two{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
     <div class="logo">
-        Makazi <span>Chap</span>
+        Makazi Chap
     </div>
 
     <nav>
         <a href="#nyumba">Nyumba</a>
-        <a href="#jinsi">Jinsi inavyofanya kazi</a>
-        <button class="post-btn" onclick="openModal()">
+        <a href="#huduma">Huduma</a>
+
+        <button class="post-btn" onclick="openPost()">
             + Post Nyumba
         </button>
     </nav>
@@ -431,37 +475,35 @@
     <h1>Tafuta Makazi Kwa Chap 🏠</h1>
 
     <p>
-        Tafuta vyumba na nyumba za kupanga karibu na eneo unalotaka.
+        Vyumba na nyumba za kupanga karibu na eneo unalotaka.
     </p>
 
-    <div class="search-box">
+    <div class="search">
 
         <input
-            type="text"
-            id="locationInput"
+            id="searchLocation"
             placeholder="Mji au mtaa..."
         >
 
-        <select id="houseType">
+        <select id="searchType">
+
             <option value="">Aina ya nyumba</option>
             <option>Chumba</option>
             <option>Self Contained</option>
             <option>Chumba + Sebule</option>
             <option>Apartment</option>
             <option>Nyumba nzima</option>
+
         </select>
 
         <input
+            id="searchPrice"
             type="number"
-            id="maxPrice"
-            placeholder="Bei mpaka (TZS)"
+            placeholder="Bei mpaka TZS"
         >
 
-        <button
-            class="search-button"
-            onclick="searchProperties()"
-        >
-            Tafuta
+        <button onclick="searchHomes()">
+            🔎 Tafuta
         </button>
 
     </div>
@@ -469,44 +511,78 @@
 </section>
 
 
-<!-- POPULAR -->
+<!-- FEATURES -->
+
+<section class="section" id="huduma">
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">📍</div>
+            <h3>Karibu Nawe</h3>
+            <p>Tafuta nyumba kulingana na eneo.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💰</div>
+            <h3>Bei Rahisi</h3>
+            <p>Chagua nyumba kulingana na uwezo wako.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h3>Verified</h3>
+            <p>Listings zitakazothibitishwa zitaonyeshwa.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📞</div>
+            <h3>Wasiliana</h3>
+            <p>Wasiliana moja kwa moja na mwenye nyumba.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LISTINGS -->
 
 <section class="section" id="nyumba">
 
-    <div class="section-title">
+    <div class="heading">
 
-        <h2>🔥 Nyumba Maarufu</h2>
+        <h2>🔥 Nyumba Zinazopendwa</h2>
 
-        <a href="#">
-            Angalia zote
-        </a>
+        <span id="resultCount"></span>
 
     </div>
 
 
-    <div class="property-grid" id="propertyGrid">
+    <div class="grid" id="propertyGrid">
 
-        <!-- PROPERTY 1 -->
 
-        <div class="property-card"
-             data-location="Mbeya Iyunga"
+        <!-- HOUSE 1 -->
+
+        <div class="card"
+             data-location="Iyunga Mbeya"
              data-type="Self Contained"
              data-price="180000">
 
-            <div class="property-image">
+            <div class="card-img">
 
-                <span class="badge">
-                    VERIFIED
-                </span>
+                <span class="badge">✓ VERIFIED</span>
 
-                <img
-                    src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
-                    alt="Self contained room"
-                >
+                <button class="heart"
+                        onclick="favorite(this)">
+                    ♡
+                </button>
+
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80">
 
             </div>
 
-            <div class="property-info">
+            <div class="card-body">
 
                 <h3>Self Contained</h3>
 
@@ -515,53 +591,53 @@
                 </div>
 
                 <div>
-                    <span class="price">
-                        TZS 180,000
-                    </span>
-
-                    <span class="period">
-                        / mwezi
-                    </span>
+                    <span class="price">TZS 180,000</span>
+                    <span class="period">/ mwezi</span>
                 </div>
 
-                <div class="property-footer">
-
-                    <span>
-                        👁 342 views
-                    </span>
-
-                    <a href="#" class="view-btn">
-                        Tazama
-                    </a>
-
+                <div class="stats">
+                    👁 342 views · ❤️ 47 saved
                 </div>
+
+                <button class="view"
+                    onclick="showProperty(
+                    'Self Contained',
+                    'Iyunga, Mbeya',
+                    '180,000',
+                    '3',
+                    '1522708323590-d24dbb6b0267'
+                    )">
+
+                    Tazama Nyumba
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- PROPERTY 2 -->
+        <!-- HOUSE 2 -->
 
-        <div class="property-card"
-             data-location="Dar es Salaam Mbezi"
+        <div class="card"
+             data-location="Mbezi Dar es Salaam"
              data-type="Chumba + Sebule"
              data-price="350000">
 
-            <div class="property-image">
+            <div class="card-img">
 
-                <span class="badge">
-                    MPYA
-                </span>
+                <span class="badge">MPYA</span>
 
-                <img
-                    src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
-                    alt="Apartment"
-                >
+                <button class="heart"
+                        onclick="favorite(this)">
+                    ♡
+                </button>
+
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80">
 
             </div>
 
-            <div class="property-info">
+            <div class="card-body">
 
                 <h3>Chumba + Sebule</h3>
 
@@ -570,49 +646,46 @@
                 </div>
 
                 <div>
-                    <span class="price">
-                        TZS 350,000
-                    </span>
-
-                    <span class="period">
-                        / mwezi
-                    </span>
+                    <span class="price">TZS 350,000</span>
+                    <span class="period">/ mwezi</span>
                 </div>
 
-                <div class="property-footer">
-
-                    <span>
-                        👁 215 views
-                    </span>
-
-                    <a href="#" class="view-btn">
-                        Tazama
-                    </a>
-
+                <div class="stats">
+                    👁 215 views · ❤️ 31 saved
                 </div>
+
+                <button class="view"
+                    onclick="showProperty(
+                    'Chumba + Sebule',
+                    'Mbezi, Dar es Salaam',
+                    '350,000',
+                    '6',
+                    '1505693416388-ac5ce068fe85'
+                    )">
+
+                    Tazama Nyumba
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- PROPERTY 3 -->
+        <!-- HOUSE 3 -->
 
-        <div class="property-card"
-             data-location="Dodoma Area C"
+        <div class="card"
+             data-location="Area C Dodoma"
              data-type="Apartment"
              data-price="450000">
 
-            <div class="property-image">
+            <div class="card-img">
 
-                <img
-                    src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80"
-                    alt="Apartment"
-                >
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80">
 
             </div>
 
-            <div class="property-info">
+            <div class="card-body">
 
                 <h3>Modern Apartment</h3>
 
@@ -621,53 +694,48 @@
                 </div>
 
                 <div>
-                    <span class="price">
-                        TZS 450,000
-                    </span>
-
-                    <span class="period">
-                        / mwezi
-                    </span>
+                    <span class="price">TZS 450,000</span>
+                    <span class="period">/ mwezi</span>
                 </div>
 
-                <div class="property-footer">
-
-                    <span>
-                        👁 189 views
-                    </span>
-
-                    <a href="#" class="view-btn">
-                        Tazama
-                    </a>
-
+                <div class="stats">
+                    👁 189 views · ❤️ 25 saved
                 </div>
+
+                <button class="view"
+                    onclick="showProperty(
+                    'Modern Apartment',
+                    'Area C, Dodoma',
+                    '450,000',
+                    '3',
+                    '1560448204-e02f11c3d0e2'
+                    )">
+
+                    Tazama Nyumba
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- PROPERTY 4 -->
+        <!-- HOUSE 4 -->
 
-        <div class="property-card"
-             data-location="Arusha Sakina"
+        <div class="card"
+             data-location="Sakina Arusha"
              data-type="Nyumba nzima"
              data-price="650000">
 
-            <div class="property-image">
+            <div class="card-img">
 
-                <span class="badge">
-                    POPULAR
-                </span>
+                <span class="badge">🔥 POPULAR</span>
 
-                <img
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
-                    alt="House"
-                >
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80">
 
             </div>
 
-            <div class="property-info">
+            <div class="card-body">
 
                 <h3>Nyumba ya Familia</h3>
 
@@ -676,92 +744,28 @@
                 </div>
 
                 <div>
-                    <span class="price">
-                        TZS 650,000
-                    </span>
-
-                    <span class="period">
-                        / mwezi
-                    </span>
+                    <span class="price">TZS 650,000</span>
+                    <span class="period">/ mwezi</span>
                 </div>
 
-                <div class="property-footer">
-
-                    <span>
-                        👁 521 views
-                    </span>
-
-                    <a href="#" class="view-btn">
-                        Tazama
-                    </a>
-
+                <div class="stats">
+                    👁 521 views · ❤️ 82 saved
                 </div>
 
+                <button class="view"
+                    onclick="showProperty(
+                    'Nyumba ya Familia',
+                    'Sakina, Arusha',
+                    '650,000',
+                    '6',
+                    '1600585154340-be6161a56a0c'
+                    )">
+
+                    Tazama Nyumba
+
+                </button>
+
             </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- HOW IT WORKS -->
-
-<section class="section" id="jinsi">
-
-    <div class="section-title">
-
-        <h2>Jinsi Makazi Chap Inavyofanya Kazi</h2>
-
-    </div>
-
-    <div class="steps">
-
-        <div class="step">
-
-            <div class="step-icon">
-                🔎
-            </div>
-
-            <h3>1. Tafuta</h3>
-
-            <p>
-                Chagua mji, mtaa, aina ya nyumba na
-                bei unayoweza kumudu.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <div class="step-icon">
-                🏠
-            </div>
-
-            <h3>2. Chagua</h3>
-
-            <p>
-                Angalia picha, maelezo, bei na
-                location ya nyumba.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <div class="step-icon">
-                📞
-            </div>
-
-            <h3>3. Wasiliana</h3>
-
-            <p>
-                Wasiliana moja kwa moja na mwenye
-                nyumba au dalali.
-            </p>
 
         </div>
 
@@ -777,88 +781,55 @@
     <h2>Una nyumba ya kupanga?</h2>
 
     <p>
-        Weka nyumba yako Makazi Chap na uwafikie
-        wapangaji wanaoitafuta.
+        Wafikie wapangaji wanaotafuta nyumba katika eneo lako.
     </p>
 
-    <button onclick="openModal()">
+    <button onclick="openPost()">
         + Post Nyumba Yangu
     </button>
 
 </section>
 
 
-<!-- FOOTER -->
-
-<footer>
-
-    <h3>Makazi Chap</h3>
-
-    <p>
-        Tafuta makazi kwa chap.
-    </p>
-
-    <br>
-
-    <p>
-        © 2026 Makazi Chap. Haki zote zimehifadhiwa.
-    </p>
-
-</footer>
-
-
-<!-- POST HOUSE MODAL -->
+<!-- POST MODAL -->
 
 <div class="modal" id="postModal">
 
-    <div class="modal-content">
+<div class="modal-box">
 
-        <div class="modal-header">
+    <div class="modal-header">
 
-            <h2>Post Nyumba</h2>
+        <h2>🏠 Post Nyumba</h2>
 
-            <span
-                class="close"
-                onclick="closeModal()"
-            >
-                ×
-            </span>
+        <span class="close" onclick="closePost()">×</span>
+
+    </div>
+
+
+    <form onsubmit="submitPost(event)">
+
+        <div class="form-group">
+
+            <label>Aina ya account</label>
+
+            <select required>
+
+                <option value="">Chagua</option>
+
+                <option>Mwenye Nyumba</option>
+
+                <option>Dalali</option>
+
+            </select>
 
         </div>
 
 
-        <form onsubmit="submitProperty(event)">
+        <div class="two">
 
             <div class="form-group">
 
-                <label>
-                    Wewe ni:
-                </label>
-
-                <select required>
-
-                    <option value="">
-                        Chagua
-                    </option>
-
-                    <option>
-                        Mwenye Nyumba
-                    </option>
-
-                    <option>
-                        Dalali
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Jina lako
-                </label>
+                <label>Jina</label>
 
                 <input
                     type="text"
@@ -871,72 +842,39 @@
 
             <div class="form-group">
 
-                <label>
-                    Namba ya simu
-                </label>
-
-                <input
-                    type="tel"
-                    placeholder="07XXXXXXXX"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Aina ya nyumba
-                </label>
+                <label>Jinsia</label>
 
                 <select required>
 
-                    <option>
-                        Chumba
-                    </option>
-
-                    <option>
-                        Self Contained
-                    </option>
-
-                    <option>
-                        Chumba + Sebule
-                    </option>
-
-                    <option>
-                        Apartment
-                    </option>
-
-                    <option>
-                        Nyumba nzima
-                    </option>
+                    <option value="">Chagua</option>
+                    <option>Mwanaume</option>
+                    <option>Mwanamke</option>
 
                 </select>
 
             </div>
 
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Namba ya simu</label>
+
+            <input
+                type="tel"
+                placeholder="07XXXXXXXX"
+                required
+            >
+
+        </div>
+
+
+        <div class="two">
 
             <div class="form-group">
 
-                <label>
-                    Bei ya kodi kwa mwezi (TZS)
-                </label>
-
-                <input
-                    type="number"
-                    placeholder="Mfano 250000"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Mji
-                </label>
+                <label>Mji</label>
 
                 <input
                     type="text"
@@ -946,12 +884,9 @@
 
             </div>
 
-
             <div class="form-group">
 
-                <label>
-                    Mtaa
-                </label>
+                <label>Mtaa</label>
 
                 <input
                     type="text"
@@ -961,17 +896,37 @@
 
             </div>
 
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Aina ya nyumba</label>
+
+            <select required>
+
+                <option>Chumba</option>
+                <option>Self Contained</option>
+                <option>Chumba + Sebule</option>
+                <option>Apartment</option>
+                <option>Nyumba nzima</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="two">
 
             <div class="form-group">
 
-                <label>
-                    Miezi ya malipo inayotakiwa
-                </label>
+                <label>Kodi kwa mwezi (TZS)</label>
 
                 <input
+                    id="rent"
                     type="number"
-                    min="1"
-                    placeholder="Mfano 3"
+                    placeholder="250000"
+                    oninput="calculateFee()"
                     required
                 >
 
@@ -980,163 +935,459 @@
 
             <div class="form-group">
 
-                <label>
-                    Maelezo ya nyumba
-                </label>
+                <label>Miezi ya malipo</label>
 
-                <textarea
-                    placeholder="Elezea nyumba yako..."
+                <input
+                    type="number"
+                    min="1"
+                    placeholder="3"
                     required
-                ></textarea>
+                >
 
             </div>
 
+        </div>
 
-            <button
-                class="submit-btn"
-                type="submit"
+
+        <div class="form-group">
+
+            <label>Maelezo ya nyumba</label>
+
+            <textarea
+                placeholder="Elezea nyumba, mazingira, huduma zilizopo..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Huduma zilizopo</label>
+
+            <div class="amenities">
+
+                <label>
+                    <input type="checkbox"> 💧 Maji
+                </label>
+
+                <label>
+                    <input type="checkbox"> ⚡ Umeme
+                </label>
+
+                <label>
+                    <input type="checkbox"> 🚿 Bathroom ndani
+                </label>
+
+                <label>
+                    <input type="checkbox"> 🅿️ Parking
+                </label>
+
+                <label>
+                    <input type="checkbox"> 🔒 Uzio
+                </label>
+
+                <label>
+                    <input type="checkbox"> 📶 Internet
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Picha za nyumba</label>
+
+            <input
+                type="file"
+                accept="image/*"
+                multiple
             >
-                Endelea na Malipo ya 5%
-            </button>
 
-        </form>
+        </div>
+
+
+        <div class="payment-box">
+
+            <strong>💰 Ada ya Listing</strong>
+
+            <p style="margin-top:7px;">
+                Makazi Chap inatoza <b>5%</b> ya kodi ya mwezi.
+            </p>
+
+            <p style="margin-top:7px;">
+                Kodi: <strong id="rentDisplay">TZS 0</strong>
+            </p>
+
+            <p>
+                Ada ya 5%:
+                <strong id="feeDisplay">TZS 0</strong>
+            </p>
+
+            <hr style="margin:12px 0;">
+
+            <p>
+                Lipa kupitia HaloPesa:
+                <br>
+                <strong>0622263069</strong>
+            </p>
+
+            <p style="margin-top:5px;">
+                Jina: Dominic Saljent Mwamwezi
+            </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Transaction Reference</label>
+
+            <input
+                type="text"
+                placeholder="Weka reference baada ya malipo"
+            >
+
+        </div>
+
+
+        <button class="submit" type="submit">
+
+            Tuma Listing
+
+        </button>
+
+    </form>
+
+</div>
+
+</div>
+
+
+<!-- PROPERTY DETAILS MODAL -->
+
+<div class="modal" id="propertyModal">
+
+<div class="modal-box">
+
+    <div class="modal-header">
+
+        <h2 id="detailTitle">Nyumba</h2>
+
+        <span class="close" onclick="closeProperty()">×</span>
+
+    </div>
+
+    <img
+        id="detailImage"
+        class="details-img"
+        src=""
+    >
+
+    <div class="detail-price">
+        TZS <span id="detailPrice"></span>
+        <small>/ mwezi</small>
+    </div>
+
+    <p id="detailLocation"></p>
+
+
+    <div class="detail-section">
+
+        <h3>💰 Malipo</h3>
+
+        <p>
+            Inahitajika kulipa
+            <b><span id="detailMonths"></span> miezi</b>
+            kabla ya kuingia.
+        </p>
+
+    </div>
+
+
+    <div class="detail-section">
+
+        <h3>🏠 Huduma</h3>
+
+        <p style="margin-top:8px;">
+            💧 Maji &nbsp;
+            ⚡ Umeme &nbsp;
+            🚿 Bathroom &nbsp;
+            🅿️ Parking
+        </p>
+
+    </div>
+
+
+    <div class="detail-section">
+
+        <h3>📝 Maelezo</h3>
+
+        <p style="margin-top:8px;">
+            Nyumba hii ipo katika eneo zuri na lenye
+            huduma muhimu. Wasiliana na mwenye nyumba
+            au dalali kwa taarifa zaidi na kuiona nyumba.
+        </p>
+
+    </div>
+
+
+    <div class="detail-section">
+
+        <h3>🛡️ Makazi Chap Verification</h3>
+
+        <p style="margin-top:8px;">
+            🟢 Taarifa ya listing imewasilishwa kwa
+            Makazi Chap.
+        </p>
+
+    </div>
+
+
+    <div class="contact-buttons">
+
+        <button
+            class="call"
+            onclick="alert('Hapa tutaunganisha namba ya mwenye nyumba baadaye.')">
+
+            📞 Piga Simu
+
+        </button>
+
+        <button
+            class="whatsapp"
+            onclick="alert('Hapa tutaunganisha WhatsApp baadaye.')">
+
+            💬 WhatsApp
+
+        </button>
 
     </div>
 
 </div>
 
+</div>
+
+
+<footer>
+
+    <h3>Makazi Chap</h3>
+
+    <p>Tafuta makazi kwa chap.</p>
+
+    <br>
+
+    <p>© 2026 Makazi Chap</p>
+
+</footer>
+
 
 <script>
 
-    /* OPEN MODAL */
+/* POST MODAL */
 
-    function openModal() {
+function openPost(){
 
-        document.getElementById("postModal")
-            .style.display = "flex";
+    document.getElementById("postModal")
+    .style.display="flex";
 
-    }
+}
 
+function closePost(){
 
-    /* CLOSE MODAL */
+    document.getElementById("postModal")
+    .style.display="none";
 
-    function closeModal() {
-
-        document.getElementById("postModal")
-            .style.display = "none";
-
-    }
+}
 
 
-    /* SEARCH */
+/* PAYMENT CALCULATOR */
 
-    function searchProperties() {
+function calculateFee(){
 
-        const location =
-            document.getElementById("locationInput")
-            .value
-            .toLowerCase();
+    let rent =
+        Number(document.getElementById("rent").value);
 
-        const type =
-            document.getElementById("houseType")
-            .value;
+    let fee = rent * 0.05;
 
-        const maxPrice =
-            document.getElementById("maxPrice")
-            .value;
+    document.getElementById("rentDisplay")
+    .innerText =
+        "TZS " + rent.toLocaleString();
 
-        const cards =
-            document.querySelectorAll(".property-card");
+    document.getElementById("feeDisplay")
+    .innerText =
+        "TZS " + fee.toLocaleString();
 
-        let found = 0;
+}
 
 
-        cards.forEach(card => {
+/* PROPERTY DETAILS */
 
-            const cardLocation =
-                card.dataset.location.toLowerCase();
+function showProperty(
+    title,
+    location,
+    price,
+    months,
+    image
+){
 
-            const cardType =
-                card.dataset.type;
+    document.getElementById("detailTitle")
+    .innerText=title;
 
-            const cardPrice =
-                Number(card.dataset.price);
+    document.getElementById("detailLocation")
+    .innerText="📍 " + location;
 
+    document.getElementById("detailPrice")
+    .innerText=price;
 
-            const locationMatch =
-                !location ||
-                cardLocation.includes(location);
+    document.getElementById("detailMonths")
+    .innerText=months;
 
-            const typeMatch =
-                !type ||
-                cardType === type;
+    document.getElementById("detailImage")
+    .src=
+    "https://images.unsplash.com/photo-"+image+
+    "?auto=format&fit=crop&w=1000&q=80";
 
-            const priceMatch =
-                !maxPrice ||
-                cardPrice <= Number(maxPrice);
+    document.getElementById("propertyModal")
+    .style.display="flex";
 
+}
 
-            if (
-                locationMatch &&
-                typeMatch &&
-                priceMatch
-            ) {
+function closeProperty(){
 
-                card.style.display = "block";
-                found++;
+    document.getElementById("propertyModal")
+    .style.display="none";
 
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
+}
 
 
-        if (found === 0) {
+/* FAVORITE */
 
-            alert(
-                "Hakuna nyumba inayolingana na utafutaji wako."
-            );
+function favorite(button){
 
-        }
+    if(button.innerText==="♡"){
+
+        button.innerText="♥";
+
+    }else{
+
+        button.innerText="♡";
 
     }
 
+}
 
-    /* SUBMIT PROPERTY */
 
-    function submitProperty(event) {
+/* SEARCH */
 
-        event.preventDefault();
+function searchHomes(){
 
-        alert(
-            "Taarifa zako zimepokelewa! " +
-            "Hatua inayofuata itakuwa malipo ya 5%."
+    const location =
+        document.getElementById("searchLocation")
+        .value
+        .toLowerCase();
+
+    const type =
+        document.getElementById("searchType")
+        .value;
+
+    const maxPrice =
+        Number(
+            document.getElementById("searchPrice").value
         );
 
-        closeModal();
+    const cards =
+        document.querySelectorAll(".card");
 
-    }
+    let count=0;
 
+    cards.forEach(card=>{
 
-    /* CLOSE MODAL WHEN CLICKING OUTSIDE */
+        const cardLocation =
+            card.dataset.location.toLowerCase();
 
-    window.onclick = function(event) {
+        const cardType =
+            card.dataset.type;
 
-        const modal =
-            document.getElementById("postModal");
+        const cardPrice =
+            Number(card.dataset.price);
 
-        if (event.target === modal) {
+        const locationMatch =
+            !location ||
+            cardLocation.includes(location);
 
-            closeModal();
+        const typeMatch =
+            !type ||
+            cardType===type;
+
+        const priceMatch =
+            !maxPrice ||
+            cardPrice<=maxPrice;
+
+        if(
+            locationMatch &&
+            typeMatch &&
+            priceMatch
+        ){
+
+            card.style.display="block";
+            count++;
+
+        }else{
+
+            card.style.display="none";
 
         }
 
+    });
+
+    document.getElementById("resultCount")
+    .innerText=
+        count+" nyumba zimepatikana";
+
+}
+
+
+/* SUBMIT */
+
+function submitPost(event){
+
+    event.preventDefault();
+
+    alert(
+        "Listing yako imepokelewa! " +
+        "Katika mfumo wa kweli itaenda kwa admin " +
+        "kwa verification baada ya malipo."
+    );
+
+    closePost();
+
+}
+
+
+/* CLOSE WHEN OUTSIDE */
+
+window.onclick=function(event){
+
+    if(event.target ===
+        document.getElementById("postModal")){
+
+        closePost();
+
     }
+
+    if(event.target ===
+        document.getElementById("propertyModal")){
+
+        closeProperty();
+
+    }
+
+};
 
 </script>
 
 </body>
-</html>
+</html  
